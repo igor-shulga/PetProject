@@ -21,5 +21,6 @@ SkillsHomePage homePage;
     @Step
     public void should_see_course_name(String courseName){
     assertEquals("Course has wrong name", "Test Automation (Автоматизация тестирования ПО)", coursesPage.CoachCourse());
+        //tst
     }
 }
