@@ -4,8 +4,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class SkillsCoursesPage extends PageObject {
     private By pageHeader = By.className("greenHeader");
@@ -26,11 +29,17 @@ public class SkillsCoursesPage extends PageObject {
         return foundName;
     }
 
+    public List<String> getAllCoaches(){
+        List<WebElementFacade> allFields = findAll(coachName);
+        return allFields.stream().map(WebElement::getText).collect(toList());
+    }
+
+
     public String CoachCourse() {
         return find(pageHeader).getText();
     }
 
-    public void clickLeaveApplication(){
+    public void clickSubmitApplicationButton(){
         find(applicationButton).click();
     }
 
