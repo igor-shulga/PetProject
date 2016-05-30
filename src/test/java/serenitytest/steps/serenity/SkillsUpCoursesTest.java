@@ -18,20 +18,24 @@ SkillsCoursesPage coursesPage;
 SkillsHomePage homePage;
 RegistrationPopUp popUp;
 
+
+
     @Step
     public void click_on_course_from_list(String courseName){
+        homePage.open();
         homePage.openCoursesList();
         homePage.openCoursePage(courseName);
     }
 
     @Step
     public void should_see_course_name(String courseName){
-    assertEquals("Course has wrong name", "Test Automation (Автоматизация тестирования ПО)", coursesPage.CoachCourse());
+    assertEquals("Course has wrong name", courseName, coursesPage.getName());
     }
 
     @Step
     public void should_see_coach_name(String coachName){
-        assertThat(coachName+" not found",coursesPage.getAllCoaches(), hasItem(containsString(coachName)));
+        System.out.println(coursesPage.getCoachName(coachName));
+        assertEquals("Артем Карпов", coursesPage.getCoachName(coachName));
     }
 
     @Step

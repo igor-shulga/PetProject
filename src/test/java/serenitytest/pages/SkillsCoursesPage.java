@@ -18,10 +18,10 @@ public class SkillsCoursesPage extends PageObject {
     private String foundName;
 
 
-    public String CoachName(String name) {
-        List<WebElementFacade> allFields = findAll(coachName);
+    public String getCoachName(String name) { //test
+        List<WebElementFacade> allFields = findAll(By.xpath(".//*[@id='ContentPlaceHolderDefault_content_skillsup.content.products.page_2_TrainersArea']/div[2]/a/span[1]"));
         for(WebElementFacade i : allFields){
-            if(i.getText().contains(name)){
+            if(i.getText().equals(name)){
                 foundName = i.getText();
                 break;
             }
@@ -35,7 +35,7 @@ public class SkillsCoursesPage extends PageObject {
     }
 
 
-    public String CoachCourse() {
+    public String getName() {
         return find(pageHeader).getText();
     }
 

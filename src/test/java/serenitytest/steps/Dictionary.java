@@ -13,6 +13,7 @@ public class Dictionary {
     @Steps
     EndUserSteps endUser;
 
+
     @Given("the user is on the Wikionary home page")
     public void givenTheUserIsOnTheWikionaryHomePage() {
         endUser.is_the_home_page();
@@ -30,8 +31,16 @@ public class Dictionary {
 
     @Steps
     SkillsUpCoursesTest coursesTest;
-    @Given("user can open courses Автоматизация тестирования ПО")
-    public void givenTheUserIsAtSkillsUpHomePage(){
-        coursesTest.
+    @Given("user can open courses '$coursename'")
+    public void givenTheUserIsAtSkillsUpHomePage(String coursename){
+        coursesTest.click_on_course_from_list(coursename);
+    }
+    @When("page opened '$pageTitle'")
+    public void whenCoursePageOpened(String pageTitle){
+        coursesTest.should_see_course_name(pageTitle);
+    }
+    @Then("exepected coach '$coachName'")
+    public void thenCoachNameFound(String coachName){
+        coursesTest.should_see_coach_name(coachName);
     }
 }
