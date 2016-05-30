@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
 public class SkillsUpCoursesTest extends ScenarioSteps  {
@@ -30,16 +31,26 @@ RegistrationPopUp popUp;
 
     @Step
     public void should_see_coach_name(String coachName){
-        assertThat(coursesPage.getAllCoaches(), hasItem(containsString(coachName)));
+        assertThat(coachName+" not found",coursesPage.getAllCoaches(), hasItem(containsString(coachName)));
     }
 
     @Step
     public void submit_application_for_course(){
-
+        coursesPage.clickSubmitApplicationButton();
     }
 
     @Step
-    public void correct_submit_pop_up_opened(){
+    public void pop_up_opened() throws Exception {
+        coursesPage.switchToPopUp();
+    assertTrue("Application pop up not shown",coursesPage.popUpShown());
+    }
+
+    @Step
+    public void pop_up_fields_as_expected(){
+        assertEquals("Имя is not field name", "Имя", popUp.getFieldName("Имя"));
+        assertEquals("Фамилия is not field name", "Фамилия", popUp.getFieldName("Фамилия"));
+        assertEquals("Электронная почта is not field name", "Электронная почта", popUp.getFieldName("Электронная почта"));
+        assertEquals("Телефон is not field name", "Телефон", popUp.getFieldName("Телефон"));
 
     }
 }

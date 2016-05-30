@@ -6,6 +6,7 @@ import org.jbehave.core.annotations.When;
 
 import net.thucydides.core.annotations.Steps;
 import serenitytest.steps.serenity.EndUserSteps;
+import serenitytest.steps.serenity.SkillsUpCoursesTest;
 
 public class Dictionary {
 
@@ -27,4 +28,10 @@ public class Dictionary {
         endUser.should_see_definition(definition);
     }
 
+    @Steps
+    SkillsUpCoursesTest coursesTest;
+    @Given("user can open courses Автоматизация тестирования ПО")
+    public void givenTheUserIsAtSkillsUpHomePage(){
+        coursesTest.
+    }
 }

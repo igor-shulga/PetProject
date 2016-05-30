@@ -6,6 +6,6 @@ I want to perform an action
 So that I can achieve a business goal
 
 Scenario: looking for Automation Corses
-Given the user is at SkillsUp home page
-When user can open its interesting courses
-Then corresponding page with exepected coach will be shown
+Given user can open courses Автоматизация тестирования ПО
+When page opened Test Automation
+Then exepected coach Артем Карпов
