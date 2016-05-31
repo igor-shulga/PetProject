@@ -21,7 +21,9 @@ public class SkillsHomePage extends PageObject {
         openCoursesList.moveToElement(hoverOnTraining).perform();
         openCoursesList.moveToElement(hoverOnCourses).perform();
     }
+    
     public void openCoursePage(String courseName) {
+
         List<WebElementFacade> element = findAll(coursesList);
 
         for (WebElementFacade i: element){

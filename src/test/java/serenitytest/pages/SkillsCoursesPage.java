@@ -22,7 +22,7 @@ public class SkillsCoursesPage extends PageObject {
     public String getCoachName(String name) { //test findAll by class name doesnt work
 
         List<WebElementFacade> allFields = find(allCoaches).thenFindAll(coachName);
-        // List<WebElementFacade> allFields = findAll(coachName); needs to be clarified, cuz when I'm using findAll by class name it returns null
+        // List<WebElementFacade> allFields = findAll(coachName); // needs to be clarified, cuz when I'm using findAll by class name it returns null
 
         for(WebElementFacade i : allFields){
             if(i.getText().equals(name)){

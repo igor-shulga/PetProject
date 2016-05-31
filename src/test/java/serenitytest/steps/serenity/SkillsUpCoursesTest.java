@@ -21,15 +21,15 @@ RegistrationPopUp popUp;
 
 
     @Step
-    public void click_on_course_from_list(String courseName){
+    public void click_on_course_from_list(String course){
         homePage.open();
         homePage.openCoursesList();
-        homePage.openCoursePage(courseName);
+        homePage.openCoursePage(course);
     }
 
     @Step
-    public void should_see_course_name(String courseName){
-    assertEquals("Course has wrong name", courseName, coursesPage.getName());
+    public void should_see_course_name(String pageTitle){
+    assertEquals("Course has wrong name", pageTitle, coursesPage.getName());
     }
 
     @Step

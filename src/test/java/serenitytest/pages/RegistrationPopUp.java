@@ -25,7 +25,7 @@ public class RegistrationPopUp extends PageObject {
 
     public List<String> getAllFields (){
 
-        List<WebElementFacade> allFields = find(By.id("formholder2980")).thenFindAll(popUpFields);
+        List<WebElementFacade> allFields = findAll(popUpFields);
         List<String> fieldNames = new ArrayList<String>();
         for (WebElementFacade i: allFields){
             fieldNames.add (i.getText());

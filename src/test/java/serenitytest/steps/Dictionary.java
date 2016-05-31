@@ -1,8 +1,6 @@
 package serenitytest.steps;
 
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
 
 import net.thucydides.core.annotations.Steps;
 import serenitytest.steps.serenity.EndUserSteps;
@@ -29,7 +27,7 @@ public class Dictionary {
         endUser.should_see_definition(definition);
     }
 
-    @Steps
+  /*  @Steps
     SkillsUpCoursesTest student;
     @Given("user can open courses '$coursename'")
     public void givenTheUserIsAtSkillsUpHomePage(String coursename){
@@ -47,9 +45,39 @@ public class Dictionary {
     public void thenStudentCanSubmitApplication(){
         student.submit_application_for_course();
 
-    }
-    @Then("fields at pop up shown as expected")
+    }*/
+  /*  @Then("fields at pop up shown as expected")
     public void andThenFiledsAtPopUpAsExpected() throws Exception {// not full
         student.pop_up_fields_as_expected();
+    }*/
+
+
+    @Steps
+    SkillsUpCoursesTest student;
+
+    @Given("user can open course '$course'")
+    @Alias("user can open course <course>")
+    public void givenTheUserIsAtSkillsUpHome(String course) {
+        student.click_on_course_from_list(course);
     }
+
+    @When("page opened '$pageTitle'")
+    @Alias("page opened <pageTitle>")
+    public void whenCoursePageOpened(String pageTitle) {
+        student.should_see_course_name(pageTitle);
+    }
+
+
+
+    @Then("expected coach '$name'")
+    @Alias("expected coach <name>")
+    public void andWhenCoachNameFound(String name){
+        student.should_see_coach_name(name);
+    }
+    @Then("its possible to submit application")
+    public void thenStudentCanSubmitApplication(){
+        student.submit_application_for_course();
+
+    }
+
 }
