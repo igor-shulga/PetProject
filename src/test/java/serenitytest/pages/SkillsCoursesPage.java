@@ -12,14 +12,18 @@ import static java.util.stream.Collectors.toList;
 
 public class SkillsCoursesPage extends PageObject {
     private By pageHeader = By.className("greenHeader");
+    private By allCoaches = By.className("coach-data-multiple");
     private By coachName = By.className("name");
     private By popUp = By.id("u11508");
     private By applicationButton = By.className("button");
     private String foundName;
 
 
-    public String getCoachName(String name) { //test
-        List<WebElementFacade> allFields = findAll(By.xpath(".//*[@id='ContentPlaceHolderDefault_content_skillsup.content.products.page_2_TrainersArea']/div[2]/a/span[1]"));
+    public String getCoachName(String name) { //test findAll by class name doesnt work
+
+        List<WebElementFacade> allFields = find(allCoaches).thenFindAll(coachName);
+        // List<WebElementFacade> allFields = findAll(coachName); needs to be clarified, cuz when I'm using findAll by class name it returns null
+
         for(WebElementFacade i : allFields){
             if(i.getText().equals(name)){
                 foundName = i.getText();

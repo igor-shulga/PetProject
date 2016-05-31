@@ -30,17 +30,26 @@ public class Dictionary {
     }
 
     @Steps
-    SkillsUpCoursesTest coursesTest;
+    SkillsUpCoursesTest student;
     @Given("user can open courses '$coursename'")
     public void givenTheUserIsAtSkillsUpHomePage(String coursename){
-        coursesTest.click_on_course_from_list(coursename);
+        student.click_on_course_from_list(coursename);
     }
     @When("page opened '$pageTitle'")
     public void whenCoursePageOpened(String pageTitle){
-        coursesTest.should_see_course_name(pageTitle);
+        student.should_see_course_name(pageTitle);
     }
-    @Then("exepected coach '$coachName'")
-    public void thenCoachNameFound(String coachName){
-        coursesTest.should_see_coach_name(coachName);
+    @When("exepected coach '$coachName'")
+    public void andWhenCoachNameFound(String coachName){
+        student.should_see_coach_name(coachName);
+    }
+    @Then("its possible to submit application for his course")
+    public void thenStudentCanSubmitApplication(){
+        student.submit_application_for_course();
+
+    }
+    @Then("fields at pop up shown as expected")
+    public void andThenFiledsAtPopUpAsExpected() throws Exception {// not full
+        student.pop_up_fields_as_expected();
     }
 }
