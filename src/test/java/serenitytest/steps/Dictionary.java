@@ -4,7 +4,6 @@ import org.jbehave.core.annotations.*;
 
 import net.thucydides.core.annotations.Steps;
 import serenitytest.steps.serenity.EndUserSteps;
-import serenitytest.steps.serenity.SkillsUpCoursesTest;
 
 public class Dictionary {
 
