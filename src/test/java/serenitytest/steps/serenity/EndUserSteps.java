@@ -1,40 +1,42 @@
 package serenitytest.steps.serenity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.containsString;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import serenitytest.pages.WikiDummyPage;
+import serenitytest.pages.OurTeamPage;
+import serenitytest.pages.SkillsHomePage;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 public class EndUserSteps extends ScenarioSteps {
-
-    WikiDummyPage wikiDummyPage;
+    SkillsHomePage homePage;
+    OurTeamPage ourTeam;
 
     @Step
-    public void enters(String keyword) {
-        wikiDummyPage.enterKeywords(keyword);
+    public void open_Our_Team_page(){
+        homePage.open();
+        homePage.openOurTeamPage();
+
     }
 
     @Step
-    public void starts_search() {
-        wikiDummyPage.lookupTerms();
+    public void our_team_page_opened(){
+        assertTrue("incorrect page opened",ourTeam.pageHeaderIsOurTeam());
     }
 
     @Step
-    public void should_see_definition(String definition) {
-        assertThat(wikiDummyPage.getDefinitions(), hasItem(containsString(definition)));
+    public void user_should_see_coach_and_specification(String coach, String specification){
+
+        assertTrue(coach +" is not the coach",ourTeam.coachNameIsPresent(coach));
+        assertThat(ourTeam.getAllPositions(), hasItem(containsString(specification)));
+
     }
 
-    @Step
-    public void is_the_home_page() {
-        wikiDummyPage.open();
-    }
 
-    @Step
-    public void looks_for(String term) {
-        enters(term);
-        starts_search();
-    }
+
+
 }

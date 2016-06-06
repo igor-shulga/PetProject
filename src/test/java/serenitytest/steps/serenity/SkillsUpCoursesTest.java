@@ -2,11 +2,8 @@ package serenitytest.steps.serenity;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import serenitytest.pages.RegistrationPopUp;
-import serenitytest.pages.SkillsCoursesPage;
 import serenitytest.pages.SkillsHomePage;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;

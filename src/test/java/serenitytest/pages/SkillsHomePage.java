@@ -14,6 +14,10 @@ public class SkillsHomePage extends PageObject {
     private By courses = By.xpath(".//*[@id='menu1078']/ul/li[1]");
     private By coursesList = By.xpath(".//*[@id='subMenuSubNodes1189']/li[position()>0]/a");
 
+    private By aboutUs = By.xpath(".//*[@id='menu3039']/a");
+    private By ourTeam = By.xpath(".//*[@id='menu3039']/ul/li[1]/a");
+
+
     public void openCoursesList() {
         WebElementFacade hoverOnTraining = find(training);
         WebElementFacade hoverOnCourses = find(courses);
@@ -21,6 +25,16 @@ public class SkillsHomePage extends PageObject {
         openCoursesList.moveToElement(hoverOnTraining).perform();
         openCoursesList.moveToElement(hoverOnCourses).perform();
     }
+    public void openOurTeamPage(){
+        WebElementFacade hoverElement = find(aboutUs);
+        WebElementFacade clickElement = find(ourTeam);
+        Actions openTeamPage = new Actions(getDriver());
+        openTeamPage.moveToElement(hoverElement).perform();
+        openTeamPage.moveToElement(clickElement).click().perform();
+
+    }
+
+
     
     public void openCoursePage(String courseName) {
 
@@ -35,5 +49,6 @@ public class SkillsHomePage extends PageObject {
         }
 
     }
+
 
 }
