@@ -36,19 +36,6 @@ public class OurTeamPage extends PageObject{
         return listOfCoachPositions;
     }
 
-    public String getCoachPositions(String coachName) {
-
-        Map<String, String> Map = new HashMap<String, String>();
-        for (int i = 0; i < getAllCoachList().size(); i++) {
-            Map.put(getAllCoachList().get(i), getAllPositions().get(i) );
-        }
-
-        for (String key : Map.keySet()) {
-            return Map.get(coachName);
-        }
-
-        return Map.get(coachName);
-    }
 
     public boolean coachNameIsPresent(String name) {
 
