@@ -24,7 +24,39 @@ public class Dictionary {
         user.should_see_coach_and_specification(coach, specialisation);
     }
 
+    @When("user starts searching for <name> in english")
+    public void endUserStartSerachingByName(@Named("name") String name){
+        user.start_searching(name);
+    }
 
+    @Then("result page contain <titleResult> and <descriptionResult>")
+    public void endUserAnalyzeTitleAndDecriptionOfResulset(@Named("titleResult") String titleResult, @Named("descriptionResult") String descriptionResult){
+        user.get_result_list(titleResult,descriptionResult);
+    }
 
+    @When("user starts searching for name '$name'")
+    public void startSearchingNameInRussian(String name){
+        user.enters_russian_words(name);
+    }
+
+    @Then("result page should not contain name '$name'")
+    public void checkResultPage(String name){
+        user.check_resultSetNegative(name);
+    }
+
+    @When("I can select <course> from list of avaliable")
+    public void openCourseFromTheLst(@Named("course") String course){
+        user.open_course_page(course);
+    }
+
+    @Then("course page header contains name of <course>")
+    public void checkPageHeader(@Named("course") String course){
+        user.check_opened_page(course);
+    }
+
+    @Then("price <price> and group <size> as expected")
+    public void checkGroupSizeAndPrice(@Named("price") String price, @Named("size") String size){
+        user.check_course_description(price,size);
+    }
 
 }

@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.containsString;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import serenitytest.pages.CoursePage;
 import serenitytest.pages.OurTeamPage;
 import serenitytest.pages.SearchResultsPage;
 import serenitytest.pages.SkillsHomePage;
@@ -18,6 +19,7 @@ public class EndUserSteps extends ScenarioSteps {
     SkillsHomePage homePage;
     OurTeamPage ourTeam;
     SearchResultsPage search;
+    CoursePage coursePage;
 
     @Step
     public void open_home_page() {
@@ -42,17 +44,37 @@ public class EndUserSteps extends ScenarioSteps {
     }
 
     @Step
-    public void get_result_list(String name, String courseName) {
-        assertThat(name + " not found", search.resultListTitles(), hasItem(containsString(name)));
-        assertThat(courseName + " not found", search.resultListDescriptions(), hasItem(containsString(courseName)));
+    public void get_result_list(String titleResults, String description ) {
+        assertThat(titleResults+" not found", search.resultListTitles(), hasItem(containsString(titleResults)));
+        assertThat(description + " not found", search.resultListDescriptions(), hasItem(containsString(description)));
     }
 
     @Step
-    public void enters_russian_words(String name) {
+    public void enters_russian_words(String name) { // not found
         homePage.enterWordsAndStartSearch(name);
+    }
+
+    @Step
+    public void check_resultSetNegative(String name){
         assertFalse(search.nameIsNotFound(name));
     }
 
+    @Step
+    public void open_course_page(String courseName){
+        homePage.openCoursesList();
+        homePage.openCoursePage(courseName);
+    }
 
+    @Step
+    public void check_opened_page(String name){
+        assertTrue("incorrect page opened", coursePage.checkCourseName(name));
+    }
+
+    @Step
+    public void check_course_description( String price,String groupSize){
+        coursePage.getCourseDescriptions();
+        assertThat(price+" incorrect", coursePage.getCourseDescriptions(), hasItem(containsString(price)));
+        assertThat(groupSize+" incorrect", coursePage.getCourseDescriptions(), hasItem(containsString(groupSize)));
+    }
 
 }
