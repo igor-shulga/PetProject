@@ -22,6 +22,8 @@ public class SkillsHomePage extends PageObject {
     private By courses = By.xpath(".//*[@id='menu1078']/ul/li[1]");
     private By coursesList = By.xpath(".//*[@id='subMenuSubNodes1189']/li[position()>0]/a");
 
+
+
     public void openOurTeamPage(){
         WebElementFacade hoverElement = find(aboutUs);
         WebElementFacade clickElement = find(ourTeam);
