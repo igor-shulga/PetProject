@@ -13,9 +13,6 @@ public class CoursePage extends PageObject {
 
     private By pageHeader = By.className("greenHeader");
     private By courseDescription = By.xpath(".//*[@id='page_position_content']/div[3]/div/div/div[1]/div/p[position()>6]");
-    private By allCoaches = By.className("coach-data-multiple");
-    private By coachName = By.className("name");
-    private String foundName;
 
     public Boolean checkCourseName(String name) {
         return find(pageHeader).getText().contains(name);
@@ -30,19 +27,5 @@ public class CoursePage extends PageObject {
         return descriptionList;
     }
 
-
-    public String getCoachName(String name) {
-
-        //List<WebElementFacade> allFields = find(allCoaches).thenFindAll(coachName);
-        List<WebElementFacade> allFields = findAll(coachName); // needs to be clarified, cuz when I'm using findAll by class name it returns null
-
-        for (WebElement i : allFields) {
-            if (i.getText().equals(name)) {
-                foundName = i.getText();
-                break;
-            }
-        }
-        return foundName;
-    }
 
 }

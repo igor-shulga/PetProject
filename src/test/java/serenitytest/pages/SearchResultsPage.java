@@ -40,16 +40,5 @@ public class SearchResultsPage extends PageObject {
             return false;
         }
     }
-    /*
-   public String getCoachName(String name) {
-        List<WebElementFacade> element = findAll(resultTitle);
-        for (WebElement i : element) {
-            if (i.getAttribute("text").contains(name)) {
-                coachName = i.getAttribute("text");
-                break;
-            }
-        }
-        return coachName;}
-     */
 
 }

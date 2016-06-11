@@ -17,7 +17,7 @@ Examples:
 |Михаил Чокан|Михаил Чокан|Руководитель учебного курса в компании SkillsUp|
 |Ева Корнеплянская|Ева Корнеплянская|новым технологиям|
 |Илья|Илья|Административная и операционная поддержка|
-Scenario: check coaches and their specealsations
+Scenario: check coaches and their specialisations
 Given end user is on main page
 When our team page opened
 Then user should see <coach> and <Coachspecialisation>

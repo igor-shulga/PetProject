@@ -1,4 +1,4 @@
-Search for definitions
-In order to understand a word that I don't know
-As a user
-I want to be able to look up the meaning of the word
+Search for interested course
+As a future student
+I want to check price and group size of course Im interested in
+So that I can plan my own costs

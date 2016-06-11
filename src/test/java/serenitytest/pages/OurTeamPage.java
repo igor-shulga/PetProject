@@ -19,14 +19,6 @@ public class OurTeamPage extends PageObject{
     private boolean coachFound;
     private By skillsUpTeam = new By.ByClassName("name");
 
-    public List<String> getAllCoachList() {
-        List listOfCoachNames = new ArrayList();
-        List<WebElementFacade> element = findAll(coachNames);
-        for (WebElement i : element) {
-            listOfCoachNames.add(i.getText());
-        }
-        return listOfCoachNames;
-    }
 
     public List<String> getAllPositions() {
         List listOfCoachPositions = new ArrayList();

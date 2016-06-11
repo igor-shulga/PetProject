@@ -1,4 +1,4 @@
-Search for definitions
-In order to understand a word that I don't know
+Search for names
 As a user
-I want to be able to look up the meaning of the word
+I want to test SkillsUp site search module work
+So that I can be sure it works
