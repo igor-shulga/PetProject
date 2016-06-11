@@ -1,24 +1,23 @@
 Meta:
 
 Narrative:
-As a user
-I want to perform an action
-So that I can achieve a business goal
+As a potential student
+I want to find coach and courses
+So that I can select courses Im interested in
 
-Scenario: scenario description
+Scenario: check coaches and their courses
 Given end user is on main page
 When our team page opened
-Then user opens personal coach page from the list
-And user should see coach name and course name
+Then user opens personal coach with <searchName> page from the list
+And user should see coach name <nameOnPage> and course name <courseName>
 Examples:
-|Артем Карпов|
-|Александр Галковский|
-|Михаил Чокан|
-|Артем Карпов|
-|Ева Корнеплянская|
-|Илья|
-
-Scenario: scenario description
+|searchName|nameOnPage|courseName|
+|Артем Карпов|Артем Карпов|Автоматизация тестирования ПО|
+|Александр Галковский|Александр Галковский|Diving into Java|
+|Михаил Чокан|Михаил Чокан|Руководитель учебного курса в компании SkillsUp|
+|Ева Корнеплянская|Ева Корнеплянская|новым технологиям|
+|Илья|Илья|Административная и операционная поддержка|
+Scenario: check coaches and their specealsations
 Given end user is on main page
 When our team page opened
 Then user should see <coach> and <Coachspecialisation>

@@ -6,10 +6,8 @@ import static org.hamcrest.Matchers.containsString;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import serenitytest.pages.CoursePage;
-import serenitytest.pages.OurTeamPage;
-import serenitytest.pages.SearchResultsPage;
-import serenitytest.pages.SkillsHomePage;
+import serenitytest.pages.*;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -20,6 +18,7 @@ public class EndUserSteps extends ScenarioSteps {
     OurTeamPage ourTeam;
     SearchResultsPage search;
     CoursePage coursePage;
+    CoachPersonalPage personalPage;
 
     @Step
     public void open_home_page() {
@@ -77,4 +76,16 @@ public class EndUserSteps extends ScenarioSteps {
         assertThat(groupSize+" incorrect", coursePage.getCourseDescriptions(), hasItem(containsString(groupSize)));
     }
 
+    @Step
+    public void open_coach_personal_page(String coachName) {
+        ourTeam.openCoachPersonalPage(coachName);
+    }
+
+    public void check_coach_name_and_course_name(String coachName, String courseName) {
+
+        assertEquals(coachName + " incorrect", coachName, personalPage.getCoachNameFromPage());
+        assertTrue(courseName + " incorrect", personalPage.getCoachCourseFromPage().contains(courseName));
+
+
+    }
 }

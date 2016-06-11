@@ -1,5 +1,6 @@
 package serenitytest.steps;
 
+import org.eclipse.jetty.util.annotation.Name;
 import org.jbehave.core.annotations.*;
 
 import net.thucydides.core.annotations.Steps;
@@ -57,6 +58,16 @@ public class Dictionary {
     @Then("price <price> and group <size> as expected")
     public void checkGroupSizeAndPrice(@Named("price") String price, @Named("size") String size){
         user.check_course_description(price,size);
+    }
+
+    @Then("user opens personal coach with <searchName> page from the list")
+    public void openCoachsPersonalPage(@Name("searchName") String searchName) {
+        user.open_coach_personal_page(searchName);
+    }
+
+    @Then("user should see coach name <nameOnPage> and course name <courseName>")
+    public void shouldSeeCoachNameAndCourse(@Named("nameOnPage") String nameOnPage, @Named("courseName") String courseName) {
+        user.check_coach_name_and_course_name(nameOnPage, courseName);
     }
 
 }

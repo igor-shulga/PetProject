@@ -17,6 +17,7 @@ public class OurTeamPage extends PageObject{
     private By coachPosition = new By.ByClassName("position");
     private By teamList = By.className("pagelem-after-greenHeader pagelem");
     private boolean coachFound;
+    private By skillsUpTeam = new By.ByClassName("name");
 
     public List<String> getAllCoachList() {
         List listOfCoachNames = new ArrayList();
@@ -51,5 +52,16 @@ public class OurTeamPage extends PageObject{
     public boolean pageHeaderIsOurTeam(){
 
         return find(headerPage).getText().contains("Наша команда");}
+
+    public void openCoachPersonalPage(String coachName) {
+        List<WebElementFacade> element = findAll(skillsUpTeam);
+        for (WebElement i : element) {
+            if (i.getText().contains(coachName)) {
+                i.click();
+                break;
+            }
+        }
+    }
+
 }
 
